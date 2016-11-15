@@ -1,0 +1,12 @@
+athena.lock
+.m2/
+.idea/
+*.iml
+.project
+.classpath
+.settings
+.pip/
+target/
+docs/_book/
+example-tests/java/target/
+example-tests/java/example-app.iml

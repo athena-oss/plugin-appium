@@ -1,0 +1,7 @@
+Appium-Python-Client==0.22
+behave==1.2.5
+enum34==1.1.6
+parse==1.6.6
+parse-type==0.3.4
+selenium==3.0.1
+six==1.10.0

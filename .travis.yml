@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- stable
+services:
+- docker
+before_script:
+- npm install -g gitbook-cli
+- mkdir -p /opt/athena
+- wget -qO- "https://github.com/athena-oss/athena/archive/v0.9.0.tar.gz" | tar --strip-components 1 -zx -C "/opt/athena"
+- ln -s "$TRAVIS_BUILD_DIR" "/opt/athena/plugins/appium"
+- touch /opt/athena/plugins/base/athena.lock
+- export PATH=$PATH:/opt/athena
+script:
+- athena appium start
+- athena appium java tests/java test
+- athena appium python tests/python
+after_success:
+- docs/publish_docs
+cache:
+  directories:
+  - $(npm config get prefix)/bin/gitbook
+env:
+  global:
+    secure: DMgMg2ILSOhrz9r7YBAOJdxO3yIuDalS2quWlWN+oOccHt1ClEzuNP6s0OsHET8krkRBIarOawga00LbxiZJeFn+6EurdFwhlEVME9QhbEh7ZfGN12CHwhJHMglwxym/g/zFuzy6xtNbbN95Pb/0hE8jmkxPS0C2Ojx5ZHdATQsacBDDX/TmSB+vILRyJvt400iYE4QvtLCJd3CymLM7Gj65Ns5btLmRa/2bkmEuGjdr1v8XCdf1+gQ54lQq0RbF1AeqVLQm24+6sfChCEuXuq8ePoioBVFzLzaFen4g9ajssm6aOkB8poPzpncni20mMnYSNSY323L4LzBx9ZS8b0tAQSZOOSO0nJd8tevcFOXgRO1NDcdUNjrgB+x6tJdYbAcjPkB7d9k0QKM0QjFVmqaNwB7sInLUVUePq0cbGaVuUps9M/UDyXCvg6Ngk1yW5AqbhKTcO78Rnu9KJbRX7Z2vDkvIhCRDKMnkdd6FqDr/9UtaAu6sy6+TC9jGaeQatvPfneG8kSqTfhNTfl9tScxfpE2nwPdMHh3cK9S5uKjYva6mzg6jw4IHJUI3pNyUl9qbuBPUUVwp/QsMcWCgDszNHg2uHadY0lups66Y35V+oD6aRE1wxpQCyF5OkRgyXFn458z+Un74k4sjSnyPz97l4ueSy4XcWGY4UVrz2UE=
