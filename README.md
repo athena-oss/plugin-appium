@@ -1,6 +1,6 @@
 # Appium Plugin [![Build Status](https://travis-ci.org/athena-oss/plugin-appium.svg?branch=master)](https://travis-ci.org/athena-oss/plugin-appium)
 
-This plugin provides an out of the box integration with Appium and Virtual Mobile devices.
+Athena Appium Plugin is a plugin for [Athena](https://github.com/athena-oss/athena), that provides an out of the box integration with Appium and Virtual Mobile devices.
 
 You can easily use this plugin in your local development machine, or in a CI/CD pipeline.
 
