@@ -2,12 +2,12 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Introduction · GitBook</title>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -442,18 +442,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1><pre><code>$ athena appium pyhton
+                                <h1 id="introduction">Introduction</h1>
+<pre><code>$ athena appium pyhton
 ...
 usage: athena appium python &lt;tests_dir&gt; [--cache-dir=&lt;dir&gt;] [--update-dependencies] [&lt;behave_args&gt;...]
 
     &lt;tests_dir&gt;                Directory where your features are located.
     [--update-dependencies]    Update dependencies inside requirements.txt.
     [--cache-dir=&lt;dir&gt;]        Use &lt;dir&gt; instead of &lt;tests_dir&gt;/.pip as a pip cache directory.
-    [&lt;behave_args&gt;...]         Optional Behave arguments.</code></pre>
-<h1 id="run-a-example-test">Run a Example Test</h1><p>We wrote and implemented a test <code>android_login.feature</code>, to validate if a fictional login system is working properly.</p><h2 id="clone">Clone</h2><p>The <code>example-tests</code> are located inside the Appium plugin repository.</p><pre><code>$ git clone https://github.com/athena-oss/plugin-appium.git</code></pre>
-<p>Inside the directory, where you cloned the repository to, there is a <code>example-tests</code> folder. Go inside it.</p><h2 id="run-the-test">Run the Test</h2><p>Make sure you have a local device running, you can refer to <a href="getting-started.html#connect-with-local-devices">Connect with Local Devices</a> or <a href="getting-started.html#connect-with-genymotion">Connect with Genymotion</a>.</p><pre><code>$ athena appium start --apks-dir=./apps --adb-port=5037
-$ athena appium python ./python</code></pre>
-<p>The tests might not start right way; you might have to wait until the virtual device is up and running.</p><p>After the waiting time, you should see the test result:</p><pre><code class="lang-gherkin">$ athena appium python ./python
+    [&lt;behave_args&gt;...]         Optional Behave arguments.
+</code></pre><h1 id="run-a-example-test">Run a Example Test</h1>
+<p>We wrote and implemented a test <code>android_login.feature</code>, to validate if a fictional login system is working properly.</p>
+<h2 id="clone">Clone</h2>
+<p>The <code>example-tests</code> are located inside the Appium plugin repository.</p>
+<pre><code>$ git clone https://github.com/athena-oss/plugin-appium.git
+</code></pre><p>Inside the directory, where you cloned the repository to, there is a <code>example-tests</code> folder. Go inside it.</p>
+<h2 id="run-the-test">Run the Test</h2>
+<p>Make sure you have a local device running, you can refer to <a href="getting-started.html#connect-with-local-devices">Connect with Local Devices</a> or <a href="getting-started.html#connect-with-genymotion">Connect with Genymotion</a>.</p>
+<pre><code>$ athena appium start --apks-dir=./apps --adb-port=5037
+$ athena appium python ./python
+</code></pre><p>The tests might not start right way; you might have to wait until the virtual device is up and running.</p>
+<p>After the waiting time, you should see the test result:</p>
+<pre><code class="lang-gherkin">$ athena appium python ./python
 
 ...
 
@@ -475,8 +485,15 @@ $ athena appium python ./python</code></pre>
 
 1 feature passed, 0 failed, 0 skipped
 2 scenarios passed, 0 failed, 0 skipped
-10 steps passed, 0 failed, 0 skipped, 0 undefined</code></pre>
-<p>To execute the tests in your Genymotion device, refer to <a href="getting-started.html#connect-with-genymotion">Connect with Genymotion</a>.</p><h1 id="updateinstall-dependencies">Update/Install Dependencies</h1><p>When you execute <code>athena appium python &lt;test_directory&gt;</code> command, you can optionally provide <code>--update-dependencies</code> option, to force the container plugin, to read the <code>requirements.txt</code> inside your <code>&lt;tests_directory&gt;</code> and install the specified dependencies.</p><h2 id="custom-cache-directory">Custom Cache Directory</h2><p>By default when you run <code>athena appium python &lt;tests_directory&gt; --update-dependencies</code>, the plugin will store any downloaded dependencies in <code>&lt;tests_directory&gt;/.pip</code>.</p><p>To change this behaviour, you need to specify the <code>--cache-dir=&lt;my_custom_cache_dir&gt;</code> with the directory  where you want the store all the downloaded dependencies.</p>
+10 steps passed, 0 failed, 0 skipped, 0 undefined
+</code></pre>
+<p>To execute the tests in your Genymotion device, refer to <a href="getting-started.html#connect-with-genymotion">Connect with Genymotion</a>.</p>
+<h1 id="updateinstall-dependencies">Update/Install Dependencies</h1>
+<p>When you execute <code>athena appium python &lt;test_directory&gt;</code> command, you can optionally provide <code>--update-dependencies</code> option, to force the container plugin, to read the <code>requirements.txt</code> inside your <code>&lt;tests_directory&gt;</code> and install the specified dependencies.</p>
+<h2 id="custom-cache-directory">Custom Cache Directory</h2>
+<p>By default when you run <code>athena appium python &lt;tests_directory&gt; --update-dependencies</code>, the plugin will store any downloaded dependencies in <code>&lt;tests_directory&gt;/.pip</code>.</p>
+<p>To change this behaviour, you need to specify the <code>--cache-dir=&lt;my_custom_cache_dir&gt;</code> with the directory  where you want the store all the downloaded dependencies.</p>
+
                                 
                                 </section>
                             
@@ -519,7 +536,7 @@ $ athena appium python ./python</code></pre>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"2.1","depth":1,"next":{"title":"Run a Example Test","level":"2.2","depth":1,"anchor":"#run-a-example-test","path":"python.md","ref":"python.md#run-a-example-test","articles":[{"title":"Clone","level":"2.2.1","depth":2,"anchor":"#clone","path":"python.md","ref":"python.md#clone","articles":[]},{"title":"Run the Test","level":"2.2.2","depth":2,"anchor":"#run-the-test","path":"python.md","ref":"python.md#run-the-test","articles":[]}]},"previous":{"title":"Connect with Selenium Hub","level":"1.6","depth":1,"anchor":"#connect-with-selenium-hub","path":"getting-started.md","ref":"getting-started.md#connect-with-selenium-hub","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"python.md","mtime":"2016-11-07T15:59:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-15T12:41:41.981Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"2.1","depth":1,"next":{"title":"Run a Example Test","level":"2.2","depth":1,"anchor":"#run-a-example-test","path":"python.md","ref":"python.md#run-a-example-test","articles":[{"title":"Clone","level":"2.2.1","depth":2,"anchor":"#clone","path":"python.md","ref":"python.md#clone","articles":[]},{"title":"Run the Test","level":"2.2.2","depth":2,"anchor":"#run-the-test","path":"python.md","ref":"python.md#run-the-test","articles":[]}]},"previous":{"title":"Connect with Selenium Hub","level":"1.6","depth":1,"anchor":"#connect-with-selenium-hub","path":"getting-started.md","ref":"getting-started.md#connect-with-selenium-hub","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"python.md","mtime":"2016-11-15T13:20:32.484Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T13:24:33.453Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -527,10 +544,6 @@ $ athena appium python ./python</code></pre>
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
-    
-        
-        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

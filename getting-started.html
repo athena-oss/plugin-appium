@@ -2,12 +2,12 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Start Appium Server · GitBook</title>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Start Appium Server · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -442,11 +442,31 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="start-appium-server">Start Appium Server</h1><p>Appium is already installed and prepared for you to use.</p><pre><code class="lang-bash">$ athena appium start</code></pre>
-<p>If you have one or more APK files in your machine, and your tests need to access them, then start the server with <code>--apks-dir=&lt;dir&gt;</code>.</p><p>The <code>&lt;dir&gt;</code> must be where you store your APK files.</p><p>When you define the Appium desired capabilities, in your tests, the key <code>apps</code> should point to <code>/opt/apks/&lt;the_remaining_path_to_my_apk&gt;</code>.</p><p>Inside the container <code>/opt/apks</code> will be the mount point for the directory you specified in <code>--apks-dir</code>.</p><p>In case you run your tests on your local machine, you can expose appium server by passing the option <code>--port=4723</code>.</p><h1 id="connect-with-local-devices">Connect with Local Devices</h1><p>For Appium server to recognize your devices automatically, you&apos;ll need <code>--adb-port=5037</code> option to be passed when you start the server.</p><pre><code>$ athena appium start --adb-port=5037</code></pre>
-<p>In case you want to connect with a device running inside a container on your local machine:</p><pre><code>$ athena appium start --with-avd=&lt;athena_avd_container_name&gt;</code></pre>
-<p>We&apos;ll find the container IP and connect with it automatically.</p><h1 id="connect-with-remote-devices">Connect with Remote Devices</h1><pre><code>$ athena appium start --with-avd=&lt;ip&gt;:&lt;port&gt;</code></pre>
-<p>That&apos;s it :)</p><h1 id="connect-with-genymotion">Connect with Genymotion</h1><p>There&apos;s two ways of doing this. Refer to the <a href="getting-started.html#connect-with-local-devices">Connect with Local Devices</a> or <a href="getting-started.html#connect-with-remote-devices">Connect with Remote Devices</a> section.</p><p><strong>NOTE:</strong> In case you want the Appium server to access APKs in your machine, use <code>--apks-dir</code> option.</p><h1 id="connect-with-selenium-hub">Connect with Selenium Hub</h1><p>First step is to create a configuration file called <code>node_config.json</code>.</p><p>The configuration has our device capabilities and necessary information on where the Selenium Hub and the Appium server are located inside the network.</p><pre><code class="lang-json">{
+                                <h1 id="start-appium-server">Start Appium Server</h1>
+<p>Appium is already installed and prepared for you to use.</p>
+<pre><code class="lang-bash">$ athena appium start
+</code></pre>
+<p>If you have one or more APK files in your machine, and your tests need to access them, then start the server with <code>--apks-dir=&lt;dir&gt;</code>.</p>
+<p>The <code>&lt;dir&gt;</code> must be where you store your APK files.</p>
+<p>When you define the Appium desired capabilities, in your tests, the key <code>apps</code> should point to <code>/opt/apks/&lt;the_remaining_path_to_my_apk&gt;</code>.</p>
+<p>Inside the container <code>/opt/apks</code> will be the mount point for the directory you specified in <code>--apks-dir</code>.</p>
+<p>In case you run your tests on your local machine, you can expose appium server by passing the option <code>--port=4723</code>.</p>
+<h1 id="connect-with-local-devices">Connect with Local Devices</h1>
+<p>For Appium server to recognize your devices automatically, you&apos;ll need <code>--adb-port=5037</code> option to be passed when you start the server.</p>
+<pre><code>$ athena appium start --adb-port=5037
+</code></pre><p>In case you want to connect with a device running inside a container on your local machine:</p>
+<pre><code>$ athena appium start --with-avd=&lt;athena_avd_container_name&gt;
+</code></pre><p>We&apos;ll find the container IP and connect with it automatically.</p>
+<h1 id="connect-with-remote-devices">Connect with Remote Devices</h1>
+<pre><code>$ athena appium start --with-avd=&lt;ip&gt;:&lt;port&gt;
+</code></pre><p>That&apos;s it :)</p>
+<h1 id="connect-with-genymotion">Connect with Genymotion</h1>
+<p>There&apos;s two ways of doing this. Refer to the <a href="getting-started.html#connect-with-local-devices">Connect with Local Devices</a> or <a href="getting-started.html#connect-with-remote-devices">Connect with Remote Devices</a> section.</p>
+<p><strong>NOTE:</strong> In case you want the Appium server to access APKs in your machine, use <code>--apks-dir</code> option.</p>
+<h1 id="connect-with-selenium-hub">Connect with Selenium Hub</h1>
+<p>First step is to create a configuration file called <code>node_config.json</code>.</p>
+<p>The configuration has our device capabilities and necessary information on where the Selenium Hub and the Appium server are located inside the network.</p>
+<pre><code class="lang-json">{
   <span class="hljs-string">&quot;capabilities&quot;</span>:
       [
         {
@@ -470,12 +490,16 @@
     <span class="hljs-string">&quot;hubPort&quot;</span>: <span class="hljs-number">4444</span>,
     <span class="hljs-string">&quot;hubHost&quot;</span>: <span class="hljs-string">&quot;athena-selenium-hub&quot;</span>
   }
-}</code></pre>
-<ul><li><code>ENV[ATHENA_APPIUM_SERVER_IP]</code> will automatically get replaced with the right IP, so that Selenium Hub can connect back to the Appium server
-</li>
-<li><code>athena-selenium-hub</code> will be resolved to the Selenium Hub IP automatically, so that Appium Server can register itself
-</li></ul>
-<p>Start the Selenium Hub <code>athena selenium start hub 2.49.1</code> (choose whatever version suits you best).</p><p>Start the Appium server with our configuration file: <code>athena appium start --with-avd=&lt;device&gt; --nodeconfig=./node_config.json</code></p><p>Selenium Hub and Appium server containers are linked automatically when they are running on the same machine, which is the case in this example.</p>
+}
+</code></pre>
+<ul>
+<li><code>ENV[ATHENA_APPIUM_SERVER_IP]</code> will automatically get replaced with the right IP, so that Selenium Hub can connect back to the Appium server</li>
+<li><code>athena-selenium-hub</code> will be resolved to the Selenium Hub IP automatically, so that Appium Server can register itself</li>
+</ul>
+<p>Start the Selenium Hub <code>athena selenium start hub 2.49.1</code> (choose whatever version suits you best).</p>
+<p>Start the Appium server with our configuration file: <code>athena appium start --with-avd=&lt;device&gt; --nodeconfig=./node_config.json</code></p>
+<p>Selenium Hub and Appium server containers are linked automatically when they are running on the same machine, which is the case in this example.</p>
+
                                 
                                 </section>
                             
@@ -518,7 +542,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Start Appium Server","level":"1.2","depth":1,"next":{"title":"Connect with Local Devices","level":"1.3","depth":1,"anchor":"#connect-with-local-devices","path":"getting-started.md","ref":"getting-started.md#connect-with-local-devices","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"getting-started.md","mtime":"2016-11-10T13:48:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-15T12:41:41.981Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Start Appium Server","level":"1.2","depth":1,"next":{"title":"Connect with Local Devices","level":"1.3","depth":1,"anchor":"#connect-with-local-devices","path":"getting-started.md","ref":"getting-started.md#connect-with-local-devices","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"getting-started.md","mtime":"2016-11-15T13:20:32.484Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T13:24:33.453Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -526,10 +550,6 @@
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
-    
-        
-        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

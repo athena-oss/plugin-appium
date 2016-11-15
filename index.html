@@ -2,12 +2,12 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Introduction · GitBook</title>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -442,10 +442,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="appium-plugin">Appium Plugin</h1><p>This plugin provides an out of the box integration with Appium and Virtual Mobile devices.</p><p>You can easily use this plugin in your local development machine, or in a CI/CD pipeline.</p><h2 id="how-to-install-">How to Install ?</h2><p>To install it simply run the following command :</p><pre><code class="lang-bash">$ athena plugins install appium https://github.com/athena-oss/plugin-appium.git</code></pre>
-<h3 id="on-mac-osx-use-homebrew">On MAC OSX Use <a href="http://brew.sh/" target="_blank">Homebrew</a>:</h3><pre><code class="lang-bash">$ brew tap athena-oss/tap
-$ brew install plugin-appium</code></pre>
-<p>Read the <a href="http://athena-oss.github.io/plugin-appium" target="_blank">Documentation</a> on using Athena.</p><h2 id="how-to-use-">How to Use ?</h2><p>This plugin provides the following commands :</p><h3 id="start---start-a-appium-server">start - Start a Appium server</h3><pre><code class="lang-bash">$ athena appium start [&lt;options&gt;...] [&lt;appium_options&gt;...]
+                                <h1 id="appium-plugin">Appium Plugin</h1>
+<p>This plugin provides an out of the box integration with Appium and Virtual Mobile devices.</p>
+<p>You can easily use this plugin in your local development machine, or in a CI/CD pipeline.</p>
+<h2 id="how-to-install-">How to Install ?</h2>
+<p>To install it simply run the following command :</p>
+<pre><code class="lang-bash">$ athena plugins install appium https://github.com/athena-oss/plugin-appium.git
+</code></pre>
+<h3 id="on-mac-osx-use-homebrew">On MAC OSX Use <a href="http://brew.sh/" target="_blank">Homebrew</a>:</h3>
+<pre><code class="lang-bash">$ brew tap athena-oss/tap
+$ brew install plugin-appium
+</code></pre>
+<p>Read the <a href="http://athena-oss.github.io/plugin-appium" target="_blank">Documentation</a> on using Athena.</p>
+<h2 id="how-to-use-">How to Use ?</h2>
+<p>This plugin provides the following commands :</p>
+<h3 id="start---start-a-appium-server">start - Start a Appium server</h3>
+<pre><code class="lang-bash">$ athena appium start [&lt;options&gt;...] [&lt;appium_options&gt;...]
 
 $ <span class="hljs-comment"># e.g. start Appium server and link with device from Athena AVD plugin</span>
 $ athena appium start --with-avd=athena-plugin-avd-wxga720-api-24-0
@@ -457,28 +469,41 @@ $ <span class="hljs-comment"># e.g. start Appium server and link with Genymotion
 $ athena appium start --with-avd=192.168.57.101:5555
 
 $ <span class="hljs-comment"># e.g. start Appium server at port 9001</span>
-$ athena appium start --port=9001</code></pre>
-<h3 id="stop---stop-the-appium-server">stop - Stop the Appium server</h3><pre><code class="lang-bash">$ athena appium stop [--help|&lt;options&gt;...]
+$ athena appium start --port=9001
+</code></pre>
+<h3 id="stop---stop-the-appium-server">stop - Stop the Appium server</h3>
+<pre><code class="lang-bash">$ athena appium stop [--help|&lt;options&gt;...]
 
 $ <span class="hljs-comment"># e.g. stop Appium server</span>
-$ athena appium stop</code></pre>
-<h3 id="logs---show-appium-server-logs">logs - Show Appium server logs</h3><pre><code class="lang-bash">$ athena appium logs [--help|&lt;options&gt;...]
+$ athena appium stop
+</code></pre>
+<h3 id="logs---show-appium-server-logs">logs - Show Appium server logs</h3>
+<pre><code class="lang-bash">$ athena appium logs [--help|&lt;options&gt;...]
 
 $ <span class="hljs-comment"># e.g. get Appium server logs</span>
 $ athena appium logs
 
 $ <span class="hljs-comment"># e.g. get Appium server on port 9001 logs</span>
-$ athena appium logs --port=9001</code></pre>
-<h3 id="terminal---starts-a-shell-inside-deviceserver-container">terminal - Starts a shell inside device/server container</h3><pre><code class="lang-bash">$ athena appium terminal [--help|&lt;options&gt;...]
+$ athena appium logs --port=9001
+</code></pre>
+<h3 id="terminal---starts-a-shell-inside-deviceserver-container">terminal - Starts a shell inside device/server container</h3>
+<pre><code class="lang-bash">$ athena appium terminal [--help|&lt;options&gt;...]
 
 $ <span class="hljs-comment"># e.g. simple shell</span>
 $ athena appium terminal
 
 $ <span class="hljs-comment"># e.g. open a terminal on Appium server at port 9001</span>
-$ athena appium terminal --port=9001</code></pre>
-<h2 id="contributing">Contributing</h2><p>Checkout our guidelines on how to contribute in <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.</p><h2 id="versioning">Versioning</h2><p>Releases are managed using github&apos;s release feature. We use <a href="http://semver.org" target="_blank">Semantic Versioning</a> for all
+$ athena appium terminal --port=9001
+</code></pre>
+<h2 id="contributing">Contributing</h2>
+<p>Checkout our guidelines on how to contribute in <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+<h2 id="versioning">Versioning</h2>
+<p>Releases are managed using github&apos;s release feature. We use <a href="http://semver.org" target="_blank">Semantic Versioning</a> for all
 the releases. Every change made to the code base will be referred to in the release notes (except for
-cleanups and refactorings).</p><h2 id="license">License</h2><p>Licensed under the <a href="LICENSE">Apache License Version 2.0 (APLv2)</a>.</p>
+cleanups and refactorings).</p>
+<h2 id="license">License</h2>
+<p>Licensed under the <a href="LICENSE">Apache License Version 2.0 (APLv2)</a>.</p>
+
                                 
                                 </section>
                             
@@ -517,7 +542,7 @@ cleanups and refactorings).</p><h2 id="license">License</h2><p>Licensed under th
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Start Appium Server","level":"1.2","depth":1,"anchor":"#start-appium-server","path":"getting-started.md","ref":"getting-started.md#start-appium-server","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2016-11-10T13:07:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-15T12:41:41.981Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Start Appium Server","level":"1.2","depth":1,"anchor":"#start-appium-server","path":"getting-started.md","ref":"getting-started.md#start-appium-server","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2016-11-15T13:20:32.484Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T13:24:33.453Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -525,10 +550,6 @@ cleanups and refactorings).</p><h2 id="license">License</h2><p>Licensed under th
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
-    
-        
-        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
