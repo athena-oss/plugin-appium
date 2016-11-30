@@ -6,17 +6,29 @@ You can easily use this plugin in your local development machine, or in a CI/CD 
 
 ## How to Install ?
 
-To install it simply run the following command :
+**On Linux**
+
+* Using `apt-get` :
 
 ```bash
-$ athena plugins install appium https://github.com/athena-oss/plugin-appium.git
+$ sudo add-apt-repository ppa:athena-oss/athena
+$ sudo apt-get update
+$ sudo apt-get install athena-plugin-appium
 ```
 
-### On MAC OSX Use [Homebrew](http://brew.sh/):
+**On MAC OSX**
+
+* Using [Homebrew](http://brew.sh/) :
 
 ```bash
 $ brew tap athena-oss/tap
 $ brew install plugin-appium
+```
+
+**Alternative**
+
+```bash
+$ athena plugins install appium https://github.com/athena-oss/plugin-appium.git
 ```
 
 Read the [Documentation](http://athena-oss.github.io/plugin-appium) on using Athena.
