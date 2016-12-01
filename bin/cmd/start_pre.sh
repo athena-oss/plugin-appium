@@ -48,7 +48,8 @@ if athena.arg_exists "--nodeconfig"; then
 	athena.argument.append_to_arguments "--nodeconfig" "/opt/node_config.json"
 fi
 
-if athena.argument.argument_exists_and_remove "--adb-port" "adb_port"; then
+if athena.arg_exists "--adb-port"; then
+	adb_port=$(athena.argument.get_argument "--adb-port")
 	athena.docker.add_option "-p ${adb_port}:5037"
 fi
 
