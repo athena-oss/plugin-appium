@@ -15,7 +15,7 @@ EOF
 fi
 
 if athena.argument.argument_exists_and_remove "--port" "port"; then
-	athena.docker.add_option "-p ${port}:4723"
+	athena.docker.add_option -p "${port}:4723"
 	athena.os.set_instance "$port"
 fi
 
@@ -27,7 +27,7 @@ athena.plugins.appium.try_to_auto_link_containers "hub" "athena-selenium-hub"
 
 if athena.argument.argument_exists_and_remove "--with-avd" "connection_string"; then
 	if [[ "$connection_string" =~ ^athena-plugin-.* ]]; then
-		athena.docker.add_option "--link ${connection_string}:athena-device"
+		athena.docker.add_option --link "${connection_string}:athena-device"
 		athena.docker.add_env "ATHENA_DEVICE_ADDRESS" "athena-device"
 	else
 		athena.docker.add_env "ATHENA_DEVICE_ADDRESS" "$connection_string"
@@ -44,13 +44,13 @@ fi
 if athena.arg_exists "--nodeconfig"; then
 	node_config_file="$(athena.argument.get_path_from_argument --nodeconfig)"
 	athena.argument.remove_argument "--nodeconfig"
-	athena.docker.add_option "-v ${node_config_file}:/opt/user_node_config.json"
+	athena.docker.add_option -v "${node_config_file}:/opt/user_node_config.json"
 	athena.argument.append_to_arguments "--nodeconfig" "/opt/node_config.json"
 fi
 
 if athena.arg_exists "--adb-port"; then
 	adb_port=$(athena.argument.get_argument "--adb-port")
-	athena.docker.add_option "-p ${adb_port}:5037"
+	athena.docker.add_option -p "${adb_port}:5037"
 fi
 
 athena.docker.add_daemon

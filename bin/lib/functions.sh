@@ -19,7 +19,7 @@ function athena.plugins.appium.try_to_auto_link_containers()
 		fi
 	else
 		if [[ "$type" == "appium" ]]; then
-			container_name=$(athena.plugin.get_container_name)
+			container_name="$(athena.plugin.get_container_name)"
 		else
 			if [[ ! -d "$(athena.plugin.get_plugins_dir)/selenium" ]]; then
 				athena.color.print_debug "Skipped auto link with Selenium. Plugin is not installed..."
@@ -27,7 +27,7 @@ function athena.plugins.appium.try_to_auto_link_containers()
 			fi
 
 			athena.plugin.require "selenium" "0.3.1"
-			container_name="$(athena.plugins.selenium.get_container_name $type)"
+			container_name="$(athena.plugins.selenium.get_container_name "$type")"
 		fi
 
 		if ! athena.docker.is_container_running "$container_name"; then
@@ -37,5 +37,5 @@ function athena.plugins.appium.try_to_auto_link_containers()
 	fi
 
 	athena.color.print_info "Auto linking with $type container '${container_name}'..."
-	athena.docker.add_option "--link ${container_name}:${link_name}"
+	athena.docker.add_option --link "${container_name}:${link_name}"
 }
