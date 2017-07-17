@@ -6,4 +6,6 @@ if athena.argument.argument_exists_and_remove "--update-dependencies"; then
 fi
 
 mvn $(athena.args)
+mvnStatus=$?
 cd -
+exit $mvnStatus
